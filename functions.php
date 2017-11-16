@@ -19,5 +19,3 @@ function miraclemob_features() {
 // Hook functions to wp actions
 add_action('wp_enqueue_scripts', 'miraclemob_files');
 add_action('after_setup_theme', 'miraclemob_features');
-
-?>
