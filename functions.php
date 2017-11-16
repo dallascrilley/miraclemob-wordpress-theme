@@ -19,3 +19,20 @@ function miraclemob_features() {
 // Hook functions to wp actions
 add_action('wp_enqueue_scripts', 'miraclemob_files');
 add_action('after_setup_theme', 'miraclemob_features');
+
+function miraclemob_post_types() {
+  register_post_type('event', array(
+    'public' => true,
+    'labels' => array(
+      'name' => 'Events',
+      'add_new_item' => 'Add New Event',
+      'edit_item' => 'Edit Event',
+      'all_items' => 'All Events',
+      'singular_name' => 'Event'
+
+    ),
+    'menu_icon' => 'dashicons-calendar'
+  ));
+}
+
+add_action('init', 'miraclemob_post_types');
