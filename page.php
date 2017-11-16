@@ -1,10 +1,9 @@
 <?php get_header();
 
-  // Start the loop
+
   while(have_posts()) {
     the_post(); ?>
 
-    <!-- Start banner section -->
       <div class="page-banner">
         <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg')?>);"></div>
         <div class="page-banner__content container container--narrow">
@@ -14,10 +13,7 @@
           </div>
         </div>
       </div>
-    <!-- End banner section -->
 
-
-      <!-- Start breadcrumbs section -->
       <div class="container container--narrow page-section">
         <?php
           $theParent = wp_get_post_parent_id(get_the_id());
@@ -27,22 +23,13 @@
             </div>
 
       <?php } ?>
-      <!-- End breadcrumbs section -- >
 
-
-      <!-- Start Submenu -- >
       <?php
-      $pageArray = get_pages(array(
-
-        // Get child pages array
+      $testArray = get_pages(array(
         'child_of' => get_the_ID()
-
       ));
 
-      if ($theParent or $pageArray) {
-
-        // Start submenu/child page logic
-        // If is a single standalone page, hide submenu ?>
+      if ($theParent or $testArray) { ?>
 
         <div class="page-links">
 
@@ -65,25 +52,17 @@
       ?>
             </ul>
           </div>
-          <!-- End Submenu -- >
 
-      <?php
-      
-        // End submenu/child page logic
-        }
-      ?>
+      <?php } ?>
 
-      <!-- Start page body content -- >
+
         <div class="generic-content">
         <?php the_content(); ?>
         </div>
-      <!-- End Page body content -- >
-
 
       </div>
 
-<?php // End the loop
-}
+<?php }
 
 
 
