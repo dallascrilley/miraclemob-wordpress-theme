@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head <?php language_attributes(); ?>>
 
     <?php wp_head();?>
-    <meta charset="utf-8">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width" initial-scale="1">
     <title></title>
 
   </head>
 
-  <body>
+  <body <?php body_class(); ?>>
 
     <!-- Start header div -->
     <header class="site-header">
