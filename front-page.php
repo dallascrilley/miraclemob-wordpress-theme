@@ -13,32 +13,31 @@
     <a href="#" class="btn btn--large btn--blue">View Our Miracles</a>
   </div>
 </div>
-
 <div class="full-width-split group">
   <div class="full-width-split__one">
     <div class="full-width-split__inner">
       <h2 class="headline headline--small-plus t-center">Upcoming Events</h2>
 
-      <div class="event-summary">
-        <a class="event-summary__date t-center" href="#">
-          <span class="event-summary__month">Nov</span>
-          <span class="event-summary__day">18</span>
-        </a>
-        <div class="event-summary__content">
-          <h5 class="event-summary__title headline headline--tiny"><a href="#">Event Placeholder</a></h5>
-          <p>Aliquam erat volutpat. Fusce placerat vitae urna ut tempor. Donec ultrices rutrum. <a href="#" class="nu gray">Learn more</a></p>
-        </div>
-      </div>
-      <div class="event-summary">
-        <a class="event-summary__date t-center" href="#">
-          <span class="event-summary__month">Nov</span>
-          <span class="event-summary__day">17</span>
-        </a>
-        <div class="event-summary__content">
-          <h5 class="event-summary__title headline headline--tiny"><a href="#">Monthly Meetup</a></h5>
-          <p>Live music, pizza, good times. <a href="#" class="nu gray">Learn more</a></p>
-        </div>
-      </div>
+      <?php
+        $homepageEvents = new WP_Query(array(
+          'posts_per_page' => 2,
+          'post_type' => 'event'
+        ));
+
+        while($homepageEvents->have_posts()) {
+          $homepageEvents->the_post(); ?>
+          <div class="event-summary">
+            <a class="event-summary__date t-center" href="#">
+              <span class="event-summary__month">Mar</span>
+              <span class="event-summary__day">25</span>
+            </a>
+            <div class="event-summary__content">
+              <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+              <p><?php echo wp_trim_words(get_the_content(), 18); ?> <a href="<?php the_permalink(); ?>" class="nu gray">Learn more</a></p>
+            </div>
+          </div>
+        <?php }
+      ?>
 
       <p class="t-center no-margin"><a href="#" class="btn btn--blue">View All Events</a></p>
 
