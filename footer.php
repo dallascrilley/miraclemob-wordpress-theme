@@ -26,13 +26,11 @@
         <div class="site-footer__col-two">
           <h3 class="headline headline--small">Explore</h3>
           <nav class="nav-list">
-            <ul>
-              <li><a href="<?php echo site_url('/about-us');?>">About Us</a></li>
-              <li><a href="#">Miracles</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
+          <?php
+            wp_nav_menu(array(
+              'theme_location' => 'footerMenuLocationOne'
+            ));
+            ?>
           </nav>
         </div>
         <!-- End footer column 2 (main nav links) -->
@@ -42,10 +40,11 @@
         <div class="site-footer__col-three">
           <h3 class="headline headline--small">Learn</h3>
           <nav class="nav-list">
-            <ul>
-              <li><a href="#">Legal</a></li>
-              <li><a href="<?php echo site_url('/privacy-policy');?>">Privacy</a></li>
-            </ul>
+            <?php
+              wp_nav_menu(array(
+                'theme_location' => 'footerMenuLocationTwo'
+              ));
+              ?>
           </nav>
         </div>
         <!-- End footer column 3 (secondary nav links) -->

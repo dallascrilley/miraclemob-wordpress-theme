@@ -23,11 +23,11 @@
         <!-- Start nav links -->
         <nav class="main-navigation">
           <ul>
-            <li><a href="<?php echo site_url('/about-us');?>">About Us</a></li>
-            <li><a href="#">Miracles</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
+            <?php
+            wp_nav_menu(array(
+              'theme_location' => 'headerMenuLocation'
+            ));
+            ?>
           </ul>
         </nav>
         <!-- End nav links -->
