@@ -21,6 +21,8 @@ add_action('wp_enqueue_scripts', 'miraclemob_files');
 add_action('after_setup_theme', 'miraclemob_features');
 
 function miraclemob_post_types() {
+
+  // Event Post Type
   register_post_type('event', array(
     'supports' => array('title', 'editor', 'excerpt'),
     'rewrite' => array('slug' => 'events'),
@@ -35,6 +37,23 @@ function miraclemob_post_types() {
     ),
     'menu_icon' => 'dashicons-calendar'
   ));
+
+  // Miracle Post Type
+  register_post_type('miracle', array(
+    'supports' => array('title', 'editor'),
+    'rewrite' => array('slug' => 'miracles'),
+    'has_archive' => true,
+    'public' => true,
+    'labels' => array(
+      'name' => 'Miracles',
+      'add_new_item' => 'Add New Miracle',
+      'edit_item' => 'Edit Miracle',
+      'all_items' => 'All Miracles',
+      'singular_name' => 'Miracle'
+    ),
+    'menu_icon' => 'dashicons-heart'
+  ));
+
 }
 
 add_action('init', 'miraclemob_post_types');
